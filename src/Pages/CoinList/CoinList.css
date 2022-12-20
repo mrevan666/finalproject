@@ -1,0 +1,9 @@
+.CoinList h1{
+    font-weight: 300;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.CoinList {
+    width: 100%;
+}
