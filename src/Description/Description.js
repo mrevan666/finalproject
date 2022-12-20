@@ -18,40 +18,37 @@ function Description(props){
                 </div>
                 <aside>
                     <h1>{e.name}</h1>
-                    <p>"Canadian beaver". Unique coin with the image of a beaver. Face value - 5 cents. Created under Elizabeth II.
-
-                        In the center of the obverse is a portrait of Queen Elizabeth II, the profile is directed to the right. The inscription on the left semicircle (English) ELIZABETH II, on the right semicircle D · G · REGINA (ELIZABETH II QUEEN by the Grace of GOD) with dots. Below is a mint mark.
-
-                        In the center of the coin reverse is a Canadian beaver on a rock sticking out of the water. At the top is a semicircle with the inscription "5 cents" between two maple leaves. At the bottom in two lines is the inscription CANADA (CANADA) and the year of minting.
-                    </p>                        
+                    <p>{e.description["firstParagraph"]}</p>   
+                    <p>{e.description["secondParagraph"]}</p> 
+                    <p>{e.description["thirdParagraph"]}</p>                      
                 <table>
                     <tr>
                         <td>Issuing Country</td>
-                        <td>Composition</td>
+                        <td>{e.tableData["Issuing Country"]}</td>
                     </tr>
                     <tr>
                         <td>Composition</td>
-                        <td>Composition</td>
+                        <td>{e.tableData["Composition"]}</td>
                     </tr>
                     <tr>
                         <td>Quality</td>
-                        <td>Composition</td>
+                        <td>{e.tableData["Quality"]}</td>
                     </tr>
                     <tr>
                         <td>Denomination</td>
-                        <td>Composition</td>
+                        <td>{e.tableData["Denomination"]}</td>
                     </tr>
                     <tr>
                         <td>Year</td>
-                        <td>Composition</td>
+                        <td>{e.tableData["Year"]}</td>
                     </tr>
                     <tr>
                         <td>Weight</td>
-                        <td>Composition</td>
+                        <td>{e.tableData["Weight"]}</td>
                     </tr>
                     <tr>
                         <td>Price</td>
-                        <td>Composition</td>
+                        <td>{e.tableData["Price"]}</td>
                     </tr>
                 </table>
 

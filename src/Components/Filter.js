@@ -30,6 +30,7 @@ function Filter(){
                 <form>
                     <label>Issuing country</label>
                     <select>
+                        <option>All</option>
                         {CountryList.map((e,index)=>{
                            return <option key={index}>{e}</option>
                         })}
@@ -39,6 +40,7 @@ function Filter(){
                 <form>
                     <label>Metal</label>
                     <select>
+                        <option>All</option>
                         {MetalList.map((e,index)=>{
                            return <option key={index}>{e}</option>
                         })}
@@ -47,6 +49,7 @@ function Filter(){
                 <form>
                     <label>Quality of the coin</label>
                     <select>
+                        <option>All</option>
                         {QualityList.map((e,index)=>{
                            return <option key={index}>{e}</option>
                         })}
