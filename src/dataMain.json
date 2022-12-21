@@ -95,7 +95,7 @@
         },
         "tableData": {
             "Issuing Country": "CANADA",
-            "Composition": "Steel",
+            "Composition": "steel",
             "Quality": "BU",
             "Denomination": "1 cent",
             "Year": "1965",
@@ -118,7 +118,7 @@
         },
         "tableData": {
             "Issuing Country": "UNITED STATES OF AMERICA",
-            "Composition": "Steel",
+            "Composition": "steel",
             "Quality": "BU",
             "Denomination": "1 cent",
             "Year": "1793",

@@ -7,12 +7,12 @@ function Bullion(){
         <div className="Bullion">
             <h2>Bullion coins</h2>
             <div className='coins'>
-                <Link to={`/coinlist/${anyName}`}>
+                <Link to={`/coinlists/${anyName}`}>
                 <a href='#' className='text-dark'>Show all</a>
                 </Link>
-                <i class="fa-solid fa-chevron-right"></i>
+                <i className="fa-solid fa-chevron-right"></i>
             </div>
-            <img src="CategoryImage/Bullion.png"></img>
+            <img src="CategoryImage/Bullion.png" alt='bullion'></img>
         </div>
     )
 }

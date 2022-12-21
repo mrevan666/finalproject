@@ -7,14 +7,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DataMain from './dataMain.json';
 
 function App() {
-  
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Homepage />}></Route>
         <Route path='/coinlist' element={<CoinList />}></Route>
-        <Route path='/coinlist/:category' element={<CoinList />}></Route>
-        <Route path='/description/:id' element={<Description data={DataMain}/>} ></Route>
+        <Route path='/coinlists/:category' element={<CoinList />}></Route>
+        <Route path='/description/:id' element={<Description data={DataMain}/>}></Route>
       </Routes>
     </div>
   );

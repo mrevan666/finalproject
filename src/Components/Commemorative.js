@@ -7,7 +7,7 @@ function Commemorative(){
         <div className="Commemorative">
             <h2>Commemorative coins</h2>
             <div className='coins'>
-                <Link to={`/coinlist/${anyName}`}>
+                <Link to={`/coinlists/${anyName}`}>
                 <a href='#' className='text-dark'>Show all</a>
                 </Link>
                 <i className="fa-solid fa-chevron-right"></i> 

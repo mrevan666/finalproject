@@ -3,24 +3,28 @@ select{
     height: 50px;
 }
 
-.Filter{
+.inFilter{
     margin-top: 50px;
     display: flex;
     flex-direction: row;
+    width: 100%;
+}
 
+.Filter {
+    width: 100%;
 }
 
 .Right form label:last-of-type{
     font-weight: 300;
 }
 
-form{
+.Filter div{
     display: flex;
     flex-direction: column;
 }
 
 .Filter input{
-    width: 200px;
+    width: 100px !important;
     height: 50px;
     margin-left: 10px;
     margin-right: 10px;
@@ -28,13 +32,15 @@ form{
 
 .Right{
     margin-left: 30px;
+    width: 40%;
 }
 .Right form label{
     margin-top: 10px;
+    width: 40%;
 }
 
 
-.Left form *{
+.Left div *{
     margin-top: 10px;
 }
 

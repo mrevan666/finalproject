@@ -18,6 +18,7 @@ function Input(props){
         } else {
             alert("Input must be contain at least one character")
         }
+        props.s(search)
     }
     return(
         <div className="Input">

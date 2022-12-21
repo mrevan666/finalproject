@@ -1,11 +1,11 @@
-import Filter from "../../Components/Filter";
 import "./Homepage.css";
-import Input from '../../Components/Input';
 import Bullion from '../../Components/Bullion';
 import Exclusive from '../../Components/Exclusive';
 import Commemorative from '../../Components/Commemorative';
 import { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
+import Header from '../../Components/Header';
 
 function Homepage(){
     const [input,setInput] = useState(true);
@@ -16,10 +16,14 @@ function Homepage(){
     return(
         <div className="Homepage">
             <header>
+                <div>
                 <h1>Homepage</h1>
-                <Input f={newFunction}/>
+                <Link to="/adminpanel">
+                    <p>AdminPanel</p>
+                </Link>
+                </div>  
+                <Header />
             </header>
-            {!input ? <Filter /> :null}
             <main>
                 <Bullion />
                 <Exclusive />

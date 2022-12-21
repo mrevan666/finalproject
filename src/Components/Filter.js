@@ -1,9 +1,12 @@
 import "./Filter.css";
 import DataMain from "../dataMain.json"
+import { useState } from "react";
  
 
 
-function Filter(){
+function Filter(props){
+
+
     let CountryList = [];
     DataMain.map((e,index)=>{
         CountryList.push(e.tableData["Issuing Country"]);
@@ -24,12 +27,35 @@ function Filter(){
     })
     const ThirdArray = new Set(QualityList);
     QualityList =  Array.from(ThirdArray);
+
+
+    const [ deyer , setDeyer ] = useState();
+
+    const herHansi = () =>{
+        props.t(deyer)
+    }
+
+    props.t()
+
+    
+
+    
+
+    
+
+
+    // let countryCondition = countrySelectValue !== "All" ? filterItemCountry == countrySelectValue : filterItem;
     return(
         <div className="Filter">
+            <form>
             <div className="Left">
                 <form>
-                    <label>Issuing country</label>
-                    <select>
+                    <label onClick={herHansi}>Issuing country</label>
+                    <select onChange={
+                        (e)=>{
+                            setDeyer(e.target.value)
+                        }
+                    }>
                         <option>All</option>
                         {CountryList.map((e,index)=>{
                            return <option key={index}>{e}</option>
@@ -70,6 +96,7 @@ function Filter(){
                 </label>
             </form>
             </div>
+            </form>
         </div>
     )
 }
