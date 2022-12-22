@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Container.css";
 
 
-function Header(props) {
+function Container(props) {
 
 
     let CountryList = [];
@@ -43,6 +43,7 @@ function Header(props) {
     const [maxYear, setMaxYear] = useState(2022);
 
     const navigate = useNavigate()
+    
     function filteredMethod() {
         setFilter(!filter);
         props.f(filter)
@@ -179,4 +180,4 @@ function Header(props) {
 }
 
 
-export default Header;
+export default Container;
