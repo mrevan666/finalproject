@@ -3,7 +3,7 @@ import Bullion from '../../Components/Coins/Bullion';
 import Exclusive from '../../Components/Coins/Exclusive';
 import Commemorative from '../../Components/Coins/Commemorative';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from '../../Components/Container/Container';
+import Container from '../../Components/Container/Container';
 
 function Homepage() {
     return (
@@ -12,7 +12,7 @@ function Homepage() {
                 <div>
                     <h1>Homepage</h1>
                 </div>
-                <Header />
+                <Container />
             </header>
             <main>
                 <Bullion />
