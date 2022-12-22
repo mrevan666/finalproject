@@ -8,19 +8,12 @@ import { Link } from "react-router-dom";
 import Header from '../../Components/Header';
 
 function Homepage(){
-    const [input,setInput] = useState(true);
-    function newFunction(e){
-    setInput(e);
-    console.log(input);
-  }
+    
     return(
         <div className="Homepage">
             <header>
                 <div>
                 <h1>Homepage</h1>
-                <Link to="/adminpanel">
-                    <p>AdminPanel</p>
-                </Link>
                 </div>  
                 <Header />
             </header>

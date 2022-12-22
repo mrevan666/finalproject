@@ -1,4 +1,3 @@
-import "./Coin.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./CoinList.css";
 import { useState } from 'react';
@@ -23,41 +22,41 @@ function CoinList(){
     function selectValueFunction(b){
         setselectValue(b);
     }
-    console.log(searchText)
-    console.log(selectValue.filter(item => item.name.toLowerCase().includes(searchText.toLowerCase())));
-        
+
     const {category} = useParams();
+    const categoryFilter = category && DataMain.filter((e)=> {
+        return e.tableData["category"]  === category
+    })
+        
+    console.log(categoryFilter)
     return(
         
         <div className="Coin">
         <div className="CoinList">
-                <header>
+            <header>
                 <h1>List of the coin</h1>
-                <Link to="../">
+                    <Link to="../">
                     <p className="text-dark">Homepage — List of the coins</p> 
-                </Link>
-                <Header f={newFunction} s={searchValueFunction} t={selectValueFunction}/>
-                 </header>
-                    
-                    </div>
+                    </Link>
+                    <Header f={newFunction} s={searchValueFunction} t={selectValueFunction}/>
+            </header>
+        </div>
 
-        { DataMain.filter((e)=>{
-            return e.tableData["category"] == category}).map((e)=>{
-                return   (<div className="coin" key={e.id}>
+        {categoryFilter.map((a)=>{
+                return   (<div className="coin" key={a.id}>
                 <div className="d-flex flex-row">
-                <Link to={`/description/${e.id}`}>
-                    <img src={`../${e.tableData["imgUrlFront"]}`} alt="urlfront" />
+                <Link to={`/description/${a.id}`}>
+                    <img src={`../${a.tableData["imgUrlFront"]}`} alt="urlfront" />
                 </Link>
                     <div>
-                        <h3>{e.name}</h3>
-                        <p>{e.description["firstParagraph"]}</p>
+                        <h3>{a.name}</h3>
+                        <p>{a.description["firstParagraph"]}</p>
                     </div>
                 </div>
                </div>)
-           })
+           }) 
         }
-        {
-            selectValue.filter(item => item.name.toLowerCase().includes(searchText.toLowerCase())).map((e) => {
+        {!category && selectValue.filter(item => item.name.toLowerCase().includes(searchText.toLowerCase())).map((e) => {
                 return (<div className="coin" key={e.id}>
                     <div className="d-flex flex-row">
                         <Link to={`/description/${e.id}`}>
@@ -66,6 +65,10 @@ function CoinList(){
                         <div>
                             <h3>{e.name}</h3>
                             <p>{e.description["firstParagraph"]}</p>
+                            <mark>{e.tableData["Price"]}</mark><br/>
+                            <mark>{e.tableData["Issuing Country"]}</mark><br/>
+                            <mark>{e.tableData["Year"]}</mark><br/>
+                            <mark>{e.tableData["Composition"]}</mark>
                         </div>
                     </div>
                 </div>)
