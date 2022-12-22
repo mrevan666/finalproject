@@ -49,6 +49,10 @@ function Header(props) {
         props.f(filter)
     }
 
+    const inputFunction =(e) => {
+        setSearch(e.target.value);
+    }
+
     const selectFunction = (e) => {
         setSelect(e.target.value);
     }
@@ -77,9 +81,9 @@ function Header(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         navigate(`/coinlist`)
-        props.s(search)
 
         const any = DataMain.filter((e) => {
+            let inputName = e.name.toLowerCase().includes(search.toLowerCase());
             let country = select != "All" ? e.tableData["Issuing Country"] === select:e;
             let metalion = metal != "All" ? e.tableData["Composition"] === metal:e;
             let minimumPrice = minPrice < Number(e.tableData["Price"].slice(0, e.tableData["Price"].indexOf("$")));
@@ -87,7 +91,7 @@ function Header(props) {
             let minimumYear = minYear < Number(e.tableData["Year"]);
             let maximumYear = maxYear > Number(e.tableData["Year"]);
 
-            return country && metalion && minimumPrice && maximumPrice && minimumYear && maximumYear;
+            return country && metalion && minimumPrice && maximumPrice && minimumYear && maximumYear && inputName;
         })
         props.t(any)
     }
@@ -104,7 +108,7 @@ function Header(props) {
                 <form onSubmit={handleSubmit}>
                     <label>Input field</label>
                     <div>
-                        <input onChange={(e) => setSearch(e.target.value)}></input>
+                        <input onChange={inputFunction}></input>
                         <button type="submit" >Search</button>
                     </div>
                     <div>

@@ -8,27 +8,22 @@ import Header from "../../Components/Header"
 
 function CoinList(){
     const [input,setInput] = useState(true);
-    const [searchText,setsearchText] = useState("");
     const [selectValue,setselectValue] = useState(DataMain);
 
     function newFunction(e){
         setInput(e);
     }
 
-    function searchValueFunction(a){
-        setsearchText(a)
-    }
-
     function selectValueFunction(b){
         setselectValue(b);
     }
-
+    
     const {category} = useParams();
     const categoryFilter = category && DataMain.filter((e)=> {
         return e.tableData["category"]  === category
     })
         
-    console.log(categoryFilter)
+    console.log(selectValue)
     return(
         
         <div className="Coin">
@@ -38,11 +33,11 @@ function CoinList(){
                     <Link to="../">
                     <p className="text-dark">Homepage — List of the coins</p> 
                     </Link>
-                    <Header f={newFunction} s={searchValueFunction} t={selectValueFunction}/>
+                    <Header f={newFunction} t={selectValueFunction}/>
             </header>
         </div>
 
-        {categoryFilter.map((a)=>{
+        {category && categoryFilter.map((a)=>{
                 return   (<div className="coin" key={a.id}>
                 <div className="d-flex flex-row">
                 <Link to={`/description/${a.id}`}>
@@ -56,7 +51,7 @@ function CoinList(){
                </div>)
            }) 
         }
-        {!category && selectValue.filter(item => item.name.toLowerCase().includes(searchText.toLowerCase())).map((e) => {
+        {!category && selectValue && selectValue.map((e) => {
                 return (<div className="coin" key={e.id}>
                     <div className="d-flex flex-row">
                         <Link to={`/description/${e.id}`}>
