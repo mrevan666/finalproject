@@ -1,8 +1,7 @@
-import DataMain from "../dataMain.json";
+import DataMain from "../../Data/dataMain.json";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Header.css";
-
+import "./Container.css";
 
 
 function Header(props) {
@@ -11,9 +10,9 @@ function Header(props) {
     let CountryList = [];
     DataMain.map((e, index) => {
         CountryList.push(e.tableData["Issuing Country"]);
-        })
-    
-        CountryList.unshift("All");
+    })
+
+    CountryList.unshift("All");
 
     const UniqueArray = new Set(CountryList);
     CountryList = Array.from(UniqueArray);
@@ -49,7 +48,7 @@ function Header(props) {
         props.f(filter)
     }
 
-    const inputFunction =(e) => {
+    const inputFunction = (e) => {
         setSearch(e.target.value);
     }
 
@@ -84,8 +83,8 @@ function Header(props) {
 
         const any = DataMain.filter((e) => {
             let inputName = e.name.toLowerCase().includes(search.toLowerCase());
-            let country = select != "All" ? e.tableData["Issuing Country"] === select:e;
-            let metalion = metal != "All" ? e.tableData["Composition"] === metal:e;
+            let country = select != "All" ? e.tableData["Issuing Country"] === select : e;
+            let metalion = metal != "All" ? e.tableData["Composition"] === metal : e;
             let minimumPrice = minPrice < Number(e.tableData["Price"].slice(0, e.tableData["Price"].indexOf("$")));
             let maximumPrice = maxPrice > Number(e.tableData["Price"].slice(0, e.tableData["Price"].indexOf("$")));
             let minimumYear = minYear < Number(e.tableData["Year"]);
@@ -115,63 +114,63 @@ function Header(props) {
                         <a href="#" onClick={filteredMethod} className="text-dark">Advanced filter</a>
                         <i className="fa-solid fa-chevron-down"></i>
                     </div>
-                    {input && 
-                    <div className="Filter" >
-                        <div className="inFilter">
-                            <div className="Left">
-                                <div>
-                                    <label>Issuing country</label>
-                                    <select onChange={selectFunction}>
+                    {input &&
+                        <div className="Filter" >
+                            <div className="inFilter">
+                                <div className="Left">
+                                    <div>
+                                        <label>Issuing country</label>
+                                        <select onChange={selectFunction}>
 
-                                        {CountryList.map((e, index) => {
-                                            return <option key={index}>{e}</option>
-                                        })}
-                                    </select>
+                                            {CountryList.map((e, index) => {
+                                                return <option key={index}>{e}</option>
+                                            })}
+                                        </select>
 
+                                    </div>
+                                    <div>
+                                        <label>Metal</label>
+                                        <select onChange={metalFunction}>
+                                            {MetalList.map((e, index) => {
+                                                return <option key={index}>{e}</option>
+                                            })}
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label>Quality of the coin</label>
+                                        <select>
+                                            {QualityList.map((e, index) => {
+                                                return <option key={index}>{e}</option>
+                                            })}
+                                        </select>
+                                    </div>
                                 </div>
-                                <div>
-                                    <label>Metal</label>
-                                    <select onChange={metalFunction}>
-                                        {MetalList.map((e, index) => {
-                                            return <option key={index}>{e}</option>
-                                        })}
-                                    </select>
-                                </div>
-                                <div>
-                                    <label>Quality of the coin</label>
-                                    <select>
-                                        {QualityList.map((e, index) => {
-                                            return <option key={index}>{e}</option>
-                                        })}
-                                    </select>
+                                <div className="Right">
+                                    <div>
+                                        <label>Price</label>
+                                        <label>
+                                            from
+                                            <input onChange={minPriceFunction}>
+                                            </input>
+                                            to
+                                            <input onChange={maxPriceFunction}>
+                                            </input>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>Year of issue</label>
+                                        <label>
+                                            from
+                                            <input onChange={minYearFunction}>
+                                            </input>
+                                            to
+                                            <input onChange={maxYearFunction}>
+                                            </input>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="Right">
-                                <div>
-                                    <label>Price</label>
-                                    <label>
-                                        from
-                                        <input onChange={minPriceFunction}>
-                                        </input>
-                                        to
-                                        <input onChange={maxPriceFunction}>
-                                        </input>
-                                    </label>
-                                </div>
-                                <div>
-                                    <label>Year of issue</label>
-                                    <label>
-                                        from
-                                        <input onChange={minYearFunction}>
-                                        </input>
-                                        to
-                                        <input onChange={maxYearFunction}>
-                                        </input>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div> }
+                        </div>}
                 </form>
             </div>
 

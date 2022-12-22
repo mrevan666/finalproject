@@ -1,7 +1,7 @@
-import "./Description.css";
+import "./CoinDescription.css";
 import { useParams } from "react-router-dom";
 
-function Description(props){
+function CoinDescription(props){
     const {id} = useParams();
     console.log(id);
 
@@ -62,4 +62,4 @@ function Description(props){
     )
 }
 
-export default Description;
+export default CoinDescription;
